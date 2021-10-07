@@ -9,16 +9,20 @@ app.get('/api/products/', (req, res) => {
 
 app.get('/api/products/:id', (req, res) => {
     const productId = req.params.id;
+    const product = data.products.find(product => product._id == productId);
 
-    const product = data.products.find(product => product._id == productId)
-    console.log(product)
-    return res.send(product);
+    if(product){
+        res.send(product);
+    } else {
+        res.status(404).send({message: 'product not found.'})
+    }
 });
 
 app.get('/', (req, res) => {
     res.send("Server is ready.")
 });
 
+// eslint-disable-next-line no-undef
 const port = process.env.port || '5000';
 app.listen(5000, () => {
     console.log(`Serve at http://localhost:${port}`)
