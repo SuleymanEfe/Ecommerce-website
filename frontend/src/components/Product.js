@@ -15,6 +15,7 @@ export default function Product(props) {
         </Link>
         <Rating
           rating={product.rating}
+          sdsa
           numReviews={product.numReviews}
         ></Rating>
         <div className="price">${product.price}</div>
