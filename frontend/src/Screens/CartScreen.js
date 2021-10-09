@@ -34,7 +34,7 @@ export default function CartScreen(props) {
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <MessageBox>
-            Cart is Empty. <Link to="/">Go shopping</Link>
+            Cart is empty. <Link to="/">Go shopping</Link>
           </MessageBox>
         ) : (
           <ul>
