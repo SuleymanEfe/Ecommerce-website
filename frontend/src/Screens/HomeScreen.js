@@ -8,14 +8,12 @@ import { listProducts } from "../actions/productAction";
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
-
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
-
   return (
     <div>
       {loading ? (
@@ -24,6 +22,7 @@ export default function HomeScreen() {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div className="row center">
+          {console.log(products)}
           {products.map((product) => (
             <Product key={product._id} product={product}></Product>
           ))}

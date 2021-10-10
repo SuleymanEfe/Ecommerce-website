@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import data from "./data.js";
+import productRouter from "./Routers/productRouter.js";
 import userRouter from "./Routers/userRouter.js";
 
 const app = express();
@@ -11,26 +11,11 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    // useCreateIndex: true,
   }
 );
 
-app.get("/api/products/", (req, res) => {
-  res.send(data.products);
-});
-
-app.get("/api/products/:id", (req, res) => {
-  const productId = req.params.id;
-  const product = data.products.find((product) => product._id == productId);
-
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "product not found." });
-  }
-});
-
 app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
 
 app.get("/", (req, res) => {
   res.send("Server is ready.");

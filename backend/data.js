@@ -17,7 +17,6 @@ const data = {
   ],
   products: [
     {
-      _id: "1",
       name: "Nike T-Shirt",
       category: "Shirts",
       image: "/images/p1.jpeg",
@@ -29,7 +28,6 @@ const data = {
       description: "High quality product.",
     },
     {
-      _id: "2",
       name: "Reading Book",
       category: "Books",
       image: "/images/p2.jpeg",
@@ -41,7 +39,6 @@ const data = {
       description: "High quality product.",
     },
     {
-      _id: "3",
       name: "Nike Shoes",
       category: "Shoes",
       image: "/images/p3.jpeg",
@@ -53,7 +50,6 @@ const data = {
       description: "High quality product.",
     },
     {
-      _id: "4",
       name: "Red Bike",
       category: "Bikes",
       image: "/images/p4.jpeg",
@@ -65,7 +61,6 @@ const data = {
       description: "Low-quality product.",
     },
     {
-      _id: "5",
       name: "Blue Car",
       category: "Cars",
       image: "/images/p5.jpeg",
@@ -77,7 +72,6 @@ const data = {
       description: "High quality product.",
     },
     {
-      _id: "6",
       name: "Nike Slim Shirt",
       category: "Shirts",
       image: "/images/p6.jpeg",
