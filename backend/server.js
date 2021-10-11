@@ -1,9 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import productRouter from "./Routers/productRouter.js";
 import userRouter from "./Routers/userRouter.js";
 
+dotenv.config();
+
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(
   // eslint-disable-next-line no-undef
@@ -21,7 +27,7 @@ app.get("/", (req, res) => {
   res.send("Server is ready.");
 });
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.status(500).send({ message: err.message });
 });
 // eslint-disable-next-line no-undef
