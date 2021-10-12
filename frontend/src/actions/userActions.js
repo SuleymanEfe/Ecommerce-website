@@ -1,4 +1,4 @@
-import { Axios } from "axios";
+import Axios from "axios";
 import {
   USER_SIGNIN_FAIL,
   USER_SIGNIN_REQUEST,
@@ -8,12 +8,11 @@ import {
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
-    const { data } = await Axios.post(
-      ("/api/user/signin", { email, password })
-    );
+    const { data } = await Axios.post("/api/users/signin", { email, password });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
+    console.log(error.message);
     dispatch({
       type: USER_SIGNIN_FAIL,
       payload:

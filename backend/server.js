@@ -27,9 +27,10 @@ app.get("/", (req, res) => {
   res.send("Server is ready.");
 });
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
+
 // eslint-disable-next-line no-undef
 const port = process.env.port || "5000";
 app.listen(5000, () => {

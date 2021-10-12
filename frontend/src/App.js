@@ -11,6 +11,9 @@ function App() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+
   return (
     <BrowserRouter>
       <div>
@@ -27,7 +30,11 @@ function App() {
                 <span className="badge">{cartItems.length}</span>
               )}
             </Link>
-            <Link to="/signin">Sign in</Link>
+            {userInfo ? (
+              <Link to="#">{userInfo.name}</Link>
+            ) : (
+              <Link to="/signin">Sign in</Link>
+            )}
           </div>
         </header>
         <main>
